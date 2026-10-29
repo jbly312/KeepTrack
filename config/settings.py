@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'users',
-    'projects'
+    'projects',
+    'drf_spectacular'
 ]
 
 REST_FRAMEWORK = {
@@ -49,6 +50,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
     ],
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -135,4 +137,9 @@ MAILERS = {
     'default': {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'KeepTrack API',
+    'VERSION': '0.1.0',
 }
