@@ -17,6 +17,10 @@ class TestCase(models.Model):
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete= models.SET_NULL, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    @property
+    def latest_version(self):
+        return self.versions.order_by('-version_number').first()
+
     def __str__(self):
         return f"Case #{self.pk}"
 
