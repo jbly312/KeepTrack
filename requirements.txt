@@ -6,3 +6,5 @@ PyJWT==2.15.1
 sqlparse==0.6.0
 tzdata==2026.5
 drf-spectacular==0.30.0
+pytest-django==4.14.0
+pytest==9.1.1
