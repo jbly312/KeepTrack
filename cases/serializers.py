@@ -1,6 +1,6 @@
 
 from rest_framework import serializers
-from cases.models import Suite,TestCase, TestCaseVersion
+from cases.models import Suite, TestCase, TestCaseVersion
 
 class SuiteSerializer(serializers.ModelSerializer):
     class Meta:
@@ -10,9 +10,10 @@ class SuiteSerializer(serializers.ModelSerializer):
 
 class TestCaseVersionSerializer(serializers.ModelSerializer):
     steps = serializers.ListField(child=serializers.CharField(), required=False)
+    created_by_email = serializers.EmailField(source="created_by.email",read_only=True, default=None)
     class Meta:
         model = TestCaseVersion
-        fields = ["version_number", "title", "preconditions","steps", "expected", "priority", "created_at"]
+        fields = ["version_number", "title", "preconditions","steps", "expected", "priority", "created_at", "created_by_email"]
         read_only_fields = ["version_number", "created_at"]
 
 class TestCaseSerializer(serializers.ModelSerializer):
