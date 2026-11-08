@@ -5,6 +5,7 @@ from projects.models import Project, ProjectMember
 from projects.serializers import ProjectSerializer, MemberSerializer
 from projects.permissions import ProjectRolePermission, ProjectMemberPermission
 from django.shortcuts import get_object_or_404
+
 # Create your views here.
 
 class ProjectListView(generics.ListCreateAPIView):
