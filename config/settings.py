@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'users',
     'projects',
     'drf_spectacular',
-    'cases'
+    'cases',
+    'runs'
 ]
 
 REST_FRAMEWORK = {
